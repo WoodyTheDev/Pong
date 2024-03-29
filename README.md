@@ -19,6 +19,7 @@ This project has a server and 2 clients.
 Java Spring Boot 3.0
 JDK 17
 
+-	Swagger
 -	Authorization (JWT Token)
 -	Database connection
 -	User/Player handling
