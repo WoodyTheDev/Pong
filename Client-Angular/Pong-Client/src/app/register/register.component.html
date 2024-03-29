@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <form #RegForm="ngForm" (ngSubmit)="RegisterSubmit(RegForm.value)" class="col-md-6 mx-auto bg-dark p-4 rounded">
+        <h2>Register</h2>
+        <div class="mb-3">
+            <label for="registerPlayername" class="form-label">Playername:</label>
+            <input type="text" id="registerPlayername" name="playername" class="form-control" ngModel required>
+        </div>
+        <div class="mb-3">
+            <label for="registerEmail" class="form-label">E-Mail:</label>
+            <input type="text" id="registerEmail" name="email" class="form-control" ngModel required>
+        </div>
+        <div class="mb-3">
+            <label for="registerPassword" class="form-label">Password:</label>
+            <input type="password" id="registerPassword" name="password" class="form-control" ngModel required>
+        </div>
+        <div class="mb-3">
+            <label for="registerRole" class="form-label">Role:</label>
+            <select class="form-select" id="registerRole" name="role" aria-label="Default select example" ngModel
+                required>
+                <option selected value="PLAYER">PLAYER</option>
+
+            </select>
+        </div>
+        <button type="submit" class="btn btn-pong bg-pong">Register</button>
+        <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+        <div class="alert alert-info" *ngIf="infoMessage">{{ infoMessage }}</div>
+        <div class="alert alert-success" *ngIf="successMessage">{{ successMessage }}</div>
+    </form>
+</div>

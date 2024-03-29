@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <div class="card col-md-6 mx-auto bg-dark p-4 rounded">
+        <div class="card-header">
+            <h4 class="card-title">
+                <h2>Login</h2>
+            </h4>
+        </div>
+        <div classs="card-body">
+            <form #LoginForm="ngForm" (ngSubmit)="LoginSubmit(LoginForm.value)">
+
+                <div class="mb-3">
+                    <label for="loginPlayername" class="form-label">E-Mail:</label>
+                    <input type="text" id="loginPlayername" name="email" class="form-control" ngModel required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Password:</label>
+                    <input type="password" id="loginPassword" name="password" class="form-control" ngModel required>
+                </div>
+                <button type="submit" class="btn btn-pong">Login</button>
+                <button type="submit" (click)="GoRegisterSubmit()" class="btn btn-pong"> Dont have a Account?</button>
+            </form>
+        </div>
+        <div class="card-footer" *ngIf="errorMessage">
+            <div class="alert alert-danger">{{ errorMessage }}</div>
+        </div>
+        <div class="card-footer" *ngIf="successMessage">
+            <div class="alert alert-info">{{ successMessage }}</div>
+        </div>
+    </div>
+</div>
+

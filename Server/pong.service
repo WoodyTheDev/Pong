@@ -1,0 +1,23 @@
+[Unit]
+Description=Pong Java REST/WebSocket Service
+[Service]
+User=root
+# The configuration file application.properties should be here:
+
+#change this to your workspace
+WorkingDirectory=/var/pong
+
+#path to executable.
+#executable is a bash script which calls jar file
+ExecStart=/var/pong/pong
+
+StandardOutput=append:/var/pong/log/log.log
+StandardError=append:/var/pong/log/error-log.log
+
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

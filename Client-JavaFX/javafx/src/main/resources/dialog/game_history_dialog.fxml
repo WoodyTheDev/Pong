@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<GridPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="pong.javafx.gamehistory.controller.GameHistoryDialogController"
+	alignment="CENTER" hgap="5" vgap="5" stylesheets="/stylesheet.css"
+	styleClass="custom-table">
+	<columnConstraints>
+		<ColumnConstraints hgrow="SOMETIMES" />
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints vgrow="SOMETIMES" />
+		<RowConstraints vgrow="ALWAYS" />
+	</rowConstraints>
+
+	<!-- Statistik -->
+	<VBox GridPane.columnIndex="0" GridPane.rowIndex="1"
+		alignment="CENTER_LEFT" spacing="10" styleClass="background-black">
+		<HBox spacing="10">
+			<Label styleClass="table-row-cell" text="Gesamtspiele: " />
+			<Label styleClass="table-row-cell" fx:id="totalGamesLabel"
+				text="Anzahl Spiele Gesamt" />
+		</HBox>
+		<HBox spacing="10">
+			<Label styleClass="table-row-cell" text="Ingesamt gewonnen: " />
+			<Label styleClass="table-row-cell" fx:id="totalWon"
+				text="Anzahl gewonnen" />
+		</HBox>
+		<HBox spacing="10">
+			<Label styleClass="table-row-cell" text="Insgesamt verloren: " />
+			<Label styleClass="table-row-cell" fx:id="totalLose"
+				text="Anzahl verloren" />
+		</HBox>
+		<HBox spacing="10">
+			<Label styleClass="table-row-cell"
+				text="Am häufigsten gespielter Tag: " />
+			<Label styleClass="table-row-cell" fx:id="mostFrequentWeekday"
+				text="Häufigster Tag" />
+		</HBox>
+		<HBox spacing="10">
+			<Label styleClass="table-row-cell" text="Häufigster Gegner: " />
+			<Label styleClass="table-row-cell" fx:id="mostFrequentOpponent"
+				text="Häufigster Gegnername" />
+		</HBox>
+
+	</VBox>
+
+	<ScrollPane fx:id="scrollPane" hbarPolicy="NEVER"
+		fitToWidth="true" GridPane.columnIndex="0" GridPane.rowIndex="0"
+		styleClass="background-black">
+		<TableView fx:id="tableView" prefWidth="900">
+			<columnResizePolicy>
+				<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+			</columnResizePolicy>
+			<columns>
+				<TableColumn fx:id="createDateCol" text="Datum"
+					sortable="true" minWidth="70" styleClass="center-aligned-column" />
+				<TableColumn fx:id="player1Col" text="Spieler 1"
+					prefWidth="30" styleClass="center-aligned-column" />
+				<TableColumn fx:id="player2Col" text="Spieler 2"
+					prefWidth="30" styleClass="center-aligned-column" />
+				<TableColumn fx:id="score1Col" text="Spieler 1 Punkte"
+					prefWidth="50" styleClass="center-aligned-column" />
+				<TableColumn fx:id="score2Col" text="Spieler 2 Punkte"
+					prefWidth="50" styleClass="center-aligned-column" />
+				<TableColumn fx:id="scoresUntilWin"
+					text="Punkte zum Sieg" styleClass="center-aligned-column" />
+				<TableColumn fx:id="winCol" text="Gewonnen"
+					prefWidth="50" />
+			</columns>
+		</TableView>
+	</ScrollPane>
+</GridPane>

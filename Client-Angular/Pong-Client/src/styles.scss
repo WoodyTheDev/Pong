@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #161616;
+
+}
+.container h2 {
+    color: #00be0a;
+}
+.container .form-label {
+    color: #00be0a;
+}
+
+.container .form-control {
+    border-color: #00be0a;
+}
+
+.container select:focus,
+.container input:focus {
+   border-color:#00be0a;
+   box-shadow: 0 0 10px #00be0a;
+}
+
+.bg-dark {
+    border-color: #00be0a !important;
+}
+
+.bg-pong {
+   
+    background-color: #00be0a;
+}
+
+.btn-pong {
+    margin:10px;
+    border-color: #00be0a;
+    background-color: #00be0a;
+    color:white;
+}
+.btn-pong:hover {
+    color:white;
+    background-color:#036808;
+    transition: .50s;
+}
+
+.profile-icon {
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+
+a {
+    cursor: pointer;
+}
+.username {
+    padding:5px;
+}

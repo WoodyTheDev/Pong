@@ -1,0 +1,142 @@
+-------------------------
+- REST
+-------------------------
+http://lyra.et-inf.fho-emden.de:19036/swagger-ui/index.html#/
+
+-------------------------
+- WEBSOCKET
+-------------------------
+init connection:
+http://lyra.et-inf.fho-emden.de:19036/ws
+
+	Header:
+	Authorization: Bearer Token
+
+	Header not possible then:
+	?email=...&password=...
+		To send token would be safer but it is taking to much time to implement it
+
+********************
+* SUBSCRIBE
+********************
+/game/init (get initial data for game)
+	payload:
+		{
+			"id":1324,
+			"gamefield": {
+				"height":540,
+				"width":960,
+				"ball": {
+					"height":20,
+					"width":20,
+					"position": {
+						"x":480,
+						"y":270
+					},
+					"movement": {
+						"m":"DEGREE_72",
+						"b":0.0
+					},
+					"distance":0.0,
+					"timeForDistanceInSeconds":0.0
+				},
+				"player1Paddle": {
+					"height":60,
+					"width":20,
+					"paddleOwner":"PLAYER1",
+					"position": {
+						"x":40,
+						"y":270
+					}
+				},
+				"player2Paddle": {
+					"height":60,
+					"width":20,
+					"paddleOwner":"PLAYER2",
+					"position": {
+						"x":920,
+						"y":270
+					}
+				},
+				"scoredPlayer":"NONE",
+				"center": {
+					"x":480,
+					"y":270
+				},
+				"player1PaddleStartPosition": {
+					"x":40,
+					"y":270
+				},
+				"player2PaddleStartPosition": {
+					"x":920,
+					"y":270
+				}
+			},
+			"player1": {
+				"id":2,
+				"playername":"PongMaster666"
+			},
+			"player2": {
+				"id":1,
+				"playername":"PongMaster666"
+			},
+			"stopGame":false,
+			"scoresUntilWin":5
+		}
+
+/game/{gameId}/paddleMovement (get paddle movement from both player)
+	payload:
+		{
+			"height":60,
+			"width":20,
+			"paddleOwner":"PLAYER2",
+			"position": {
+				"x":920,
+				"y":510
+			}
+		}
+
+/game/{gameId}/ballMovement (get ball movement)
+	payload:
+		{
+			"height":20,
+			"width":20,
+			"position": {
+				"x":635,
+				"y":540
+			},
+			"movement": {
+				"m":"DEGREE_288",
+				"b":-560.9745550373184
+			},
+			"distance":311.3278015211619,
+			"timeForDistanceInSeconds":1.5566390076058096
+		}
+
+/game/{gameId}/score (score happend. get info about score)
+	payload:
+		{
+			"id":1324,
+			"player1Score":1,
+			"player2Score":0,
+			"goalByPlayer": {
+				"id":2,
+				"playername":"PongMaster666"
+			},
+			"scoresUntilWin":5,
+			"winner":null
+		}
+
+********************
+* SEND
+********************
+/pong/game (add player to matchmaking)
+	payload:
+		nothing
+
+/pong/game/{gameId}/paddle (send paddle movement)
+	payload:
+		DIRECTION_UP = -1 or
+		DIRECTION_HALT = 0 or
+		DIRECTION_DOWN = 1
+

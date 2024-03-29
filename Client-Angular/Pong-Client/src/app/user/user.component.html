@@ -1,0 +1,70 @@
+<app-game-state></app-game-state>
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center">
+
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Profil bearbeiten</h4>
+        </div>
+        <div class="card-body">
+          <form #UpdateUserForm="ngForm" (ngSubmit)="patchUser(UpdateUserForm.value)">
+            <div class="mb-3">
+              <label for="password" class="form-label">Aktuelles Passwort</label>
+              <input type="password" class="form-control" id="password" name="currentPassword" placeholder="Passwort"
+                ngModel required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Passwort</label>
+              <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Passwort"
+                ngModel>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Passwort wiederholen</label>
+              <input type="password" class="form-control" id="confirmationPassword" name="confirmationPassword"
+                placeholder="Passwort" ngModel>
+            </div>
+            <button class="btn btn-primary">Profil speichern</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Bild hochladen</h4>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label for="image" class="form-label">Bild auswählen</label>
+            <input type="file" class="form-control" id="image" (change)="convertImageToBlob($event)">
+          </div>
+          <button class="btn btn-primary" (click)="uploadImage()">Bild hochladen</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Dein Profilbild:</h4>
+        </div>
+        <div class="card-body">
+          <img [src]="profileImage " id="ImageinCard" alt="Bildbeschreibung">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast custom-toast" [ngClass]="{'show': errorMessage || infoMessage || successMessage}" role="alert"
+    aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="mr-auto">Server Info</strong>
+      <span aria-hidden="true" (click)="clearMessages()" class="closebox">&times;</span>
+    </div>
+    <div class="toast-body">
+      <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div class="alert alert-info" *ngIf="infoMessage">{{ infoMessage }}</div>
+      <div class="alert alert-success" *ngIf="successMessage">{{ successMessage }}</div>
+    </div>
+  </div>

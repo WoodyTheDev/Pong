@@ -1,0 +1,64 @@
+<app-game-state></app-game-state>
+<h1>Spielhistorie</h1>
+<div class="tableOrder">
+  <label for="sortOrder">Sortierreihenfolge:</label>
+  <select id="sortOrder" [(ngModel)]="sortOrder" (change)="sortTable()">
+    <option value="none">Keine</option>
+    <option value="ascending">Aufsteigend</option>
+    <option value="descending">Absteigend</option>
+  </select>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player 1</th>
+      <th>Player 2</th>
+      <th>Erstellt am</th>
+      <th>Spielstand</th>
+      <th>Gewinner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let game of pagedPlayers">
+      <td>{{ game.player1 }}</td>
+      <td>{{ game.player2 }}</td>
+      <td>{{ game.createDate }}</td>
+      <td>
+        {{ game.gameScore.player1Score }} - {{ game.gameScore.player2Score }}
+      </td>
+      <td>
+        {{ game.gameScore.winner === "PLAYER1" ? game.player1 : game.player2 }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="nextPage">
+  <button (click)="previousPage()" [disabled]="currentPage === 1">
+    Vorherige Seite
+  </button>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+    Nächste Seite
+  </button>
+</div>
+
+<div class="playerStatistics">
+  <h2>Spieler-Statistiken</h2>
+  <ul>
+    <li *ngFor="let player of playerStats">
+      Spieler: {{ player.name }} - Gewonnene Spiele: {{ player.wins }} -
+      Verlorene Spiele: {{ player.losses }}
+    </li>
+  </ul>
+</div>
+
+<div class="playDay">
+  <h3>Am häufigsten gespielter Tag</h3>
+  <p>{{ mostPlayedDay }}</p>
+</div>
+
+<div class="mostOpponent">
+  <h3>Häufigster Gegner</h3>
+  <p>{{ findMostPlayedOpponent() }}</p>
+</div>

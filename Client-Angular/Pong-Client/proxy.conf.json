@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+    "target": "http://lyra.et-inf.fho-emden.de:19036/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+    }
+}

@@ -1,0 +1,84 @@
+h1 {
+  color: white;
+  margin-top: 2%;
+  text-align: center;
+}
+
+h2 {
+  color: white;
+  margin-top: 2%;
+}
+
+h3 {
+  color: white;
+}
+
+label {
+  color: white;
+
+}
+
+div {
+  display: flex;
+
+}
+
+.tableOrder {
+
+  justify-content: flex-end;
+}
+
+table {
+  width: 100%;
+  color: white;
+  border-collapse: collapse;
+}
+
+.nextPage {
+  justify-content: center;
+}
+
+.playerStatistics {
+  display: block;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  text-decoration: none;
+  color: white;
+}
+
+.playDay {
+  display: block;
+  text-align: center;
+}
+
+p {
+  color: white;
+
+}
+
+.mostOpponent {
+  display: block;
+  text-align: center;
+}
+
+
+
+
+
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+thead th {
+  background-color: #00be0a;
+}

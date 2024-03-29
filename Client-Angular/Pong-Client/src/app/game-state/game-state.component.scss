@@ -1,0 +1,97 @@
+canvas {
+    margin-left: 30%;
+    margin-top: 80px;
+}
+
+#gameinfo {
+    margin-top: 20px;
+    width: 100%;
+    height: 600px;
+    background-color: #36454F;
+    border: 1px solid green;
+    overflow-y: auto;
+}
+
+.data-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.data-box {
+    background-color: #36454F;
+    border: 1px solid green;
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#navProfilPicture {
+    width: 50px;
+    height: 50px;
+}
+
+#gamesearch {
+    color: black !important;
+}
+
+.ball-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#gamefield {
+    margin-left: 30%;
+    margin-top: 80px;
+    border: 1px solid green;
+    position: relative;
+    overflow: hidden;
+}
+
+.ball {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.paddle1 {
+    z-index: 100;
+    background-color: #fff;
+    position: absolute;
+}
+
+.paddle2 {
+    z-index: 100;
+    background-color: #fa0000;
+    position: absolute;
+}
+
+.score-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    background-color: #36454F;
+    border: 1px solid green;
+    padding: 10px;
+}
+
+.scoreplayer1 {
+    margin: 0 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.scoreplayer2 {
+    margin: 0 10px;
+    color: red;
+    font-weight: bold;
+}
